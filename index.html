@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -8,17 +8,59 @@
 <link rel="icon" type="image/x-icon" href="https://browser.yandex.com/favicon.ico">
 <link rel="stylesheet" href="css/style.min.css">
 <style type="text/css">
+.poppanel{
+	top: 50%;
+	right: 0;
+	position: absolute;
+    z-index: 1;
+    overflow: hidden;  display: none;
+}
 </style>
+<script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript">
+	
+        $(function () {
+            //Float Panel
+            var objqqPopPanel = $("#qqimg");
+            var qqc = objqqPopPanel.outerWidth();
+            $("#qqcode").bind({
+                mouseover: function () {
+                    objqqPopPanel.css("width", "0px").show();
+                    objqqPopPanel.animate({ "width": qqc + "px" }, 300); return false;
+                },
+                mouseout: function () {
+                    objqqPopPanel.animate({ "width": "0px" }, 300); return false;
+                    objqqPopPanel.css("width", qqc + "px");
+                }
+            });
+                 var objwePanel = $("#weimg");
+            var we = objwePanel.outerWidth();
+               $("#qrcode").bind({
+                mouseover: function () {
+                    objwePanel.css("width", "0px").show();
+                    objwePanel.animate({ "width": we + "px" }, 300); return false;
+                },
+                mouseout: function () {
+                    objwePanel.animate({ "width": "0px" }, 300); return false;
+                    objwePanel.css("width", we + "px");
+                }
+            });
+        });
+    
+</script>
 </head>
 <body>
 	<aside>
 		<ul>
-			<li><a href="https://me.csdn.net/gongjing457" target="_blank">CSDN</a>
+			<li><a id="qqcode" href="#" target="_blank">QQ</a>
 			</li>
-			<li><a href="https://github.com/gongjing457" target="_blank">GitHub</a>
+			<li><a id="qrcode" href="#" target="_blank">微信</a>
 			</li>
 		</ul>
-	</aside>
+		
+		</aside>
+	<div id="qqimg" class="poppanel"><img src="img/qqcode.jpg"></div>
+		<div id="weimg" class="poppanel"><img src="img/wechat.jpg"></div>
 	<div class="container">
 		<div class="sidebar">
 			<div class="title">
@@ -28,7 +70,7 @@
 			<ul class="side-info">
 				<li class="someRight">
 					<dt>应聘岗位</dt>
-					<dd>销售经理/行政专员</dd>
+					<dd>销售专员/行政专员</dd>
 				</li>
 			
 				<li class="someRight">
